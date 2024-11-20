@@ -1,8 +1,11 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
-library;
+library conditional_export_issue_test;
 
-export 'src/conditional_export_issue_base.dart';
+export 'src/stub.dart' 
+  if (Platform.isLinux) 'src/linux.dart'
+  if (Platform.isWindows) 'src/windows.dart';
 
-// TODO: Export any libraries intended for clients of this package.
+// This works
+// export 'src/linux.dart' if (Platform.isWindows) 'src/windows.dart';
+
+// This also works
+// export 'src/windows.dart' if (Platform.isLinux) 'src/linux.dart';
