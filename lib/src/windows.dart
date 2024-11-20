@@ -1,3 +1,3 @@
 bool isLinux() {
-  return true;
+  return false;
 }
